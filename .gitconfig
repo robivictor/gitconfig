@@ -1,1 +1,32 @@
-
+[user]
+	email = robeltessema.h@microsoft.com
+	name = Robel Herarso
+[core]
+	editor = code --wait
+[gitreview]
+	username = rovictor
+[credential]
+	helper = store --file ~/.git-credentials
+[alias]
+	s = status
+	c = commit -m
+	ca = commit -am
+	co = checkout
+	com = checkout main
+	cob = checkout -b
+	del = branch -D
+	del-merged = "!git branch --merged main | grep -v \"^\\*\\| main\" | xargs -n 1 -r branch -d"
+	del-local = "!git branch | grep -v \"^\\*\\| main\" | xargs -n 1 -r git branch -D"
+	br = branch --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:green)(%(committerdate:relative)) [%(authorname)]' --sort=-committerdate
+	save = add -A && commit -m 'chore: savepoint'
+	undo = reset HEAD~1 --mixed
+	reset = reset --hard
+	rebase = fetch origin && rebase -i origin/main
+	sh = stash
+	p = push origin HEAD
+	pf = push origin HEAD -f
+	df = diff
+	l = log --graph --decorate --pretty=oneline --abbrev-commit
+	g = log --graph --decorate --pretty=oneline --abbrev-commit --all
+	graph = log --oneline --graph --decorate
+	list-alias = config --get-regexp alias
